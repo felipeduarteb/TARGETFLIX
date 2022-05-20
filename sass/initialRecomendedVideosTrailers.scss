@@ -27,20 +27,21 @@
     #prevVideoRecommended,
     #nextVideoRecommended {
         @include displayFlex(column, center, center);
+        @include screenAdjust(6vw,6vw);
         position: absolute;
+        display: none;
         top: 40%;
-        width: 6vw;
-        height: 6vw;
         border-radius: 100%;
         background: none;
         border: none;
         cursor: pointer;
-
+        text-align: center;
         &:hover {
             background: rgba($color: #414040, $alpha: 0.2);
         }
 
         span {
+            @include displayFlex(column, center, center);
             @include fontAdjust($fontSize: 4vw);
             color: #6e6e6e;
 
@@ -68,8 +69,7 @@
     .headerRecommendedVideoInitial,
     .footerRecommendedVideoInitial {
         position: absolute;
-        left: 0;
-        right: 0px;
+        width: 100%;
         background: $backgroundHeaderColor;
         // opacity: 1;
         box-sizing: border-box;
@@ -160,6 +160,10 @@
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
+    #prevVideoRecommended,
+    #nextVideoRecommended {
+        display: flex;
+    }
 }
 
 .cursorNone {

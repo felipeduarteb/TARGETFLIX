@@ -145,7 +145,7 @@
     right: 1vw;
     background: none;
     color: $colorPrimary;
-    z-index: 2;
+    z-index: 100;
     // display: flex;
     // flex-direction: column;
     // align-items: flex-start;
@@ -187,9 +187,9 @@
 
 
 .navHeader.navActive .linksListHeader {
+    z-index: 150;
     visibility: visible;
     height: calc(100vh - 11vw);
-    // height: 100%;
     background: $backgroundContentColor;
     font-size: 1.3rem;
     line-height: 2.3rem;

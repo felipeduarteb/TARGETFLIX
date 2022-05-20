@@ -1,21 +1,18 @@
 body {    
     @include fontAdjust();
+    @include screenAdjust();
+    @include defaultScrollbar();
     box-sizing: border-box;
     background-color: $backgroundContentColor;
     color: $colorPrimary;
-    // position: relative;
-    @include screenAdjust();
     overflow-x: visible;
     overflow-y: scroll;
-    @include defaultScrollbar();
     position: relative;
-    overflow-x: hidden;
 } 
 
 .mainContainer {
     box-sizing: border-box;
-    @include screenAdjust(98vw){
-    };
+    @include screenAdjust(98vw);
     @include device (mobile) {
         margin: 0 auto;
         @include screenAdjust(100vw, 100%);
@@ -27,6 +24,5 @@ body {
     };
     margin: 0 auto;
     overflow: hidden;
-    // position: relative;
 }
 

@@ -107,10 +107,12 @@
                 @include device (mobile) {
                     padding: 1.5vw;
                     margin-left: .5vw;
+                    line-height: 2vw;
                     font-size: 4vw;
 
                     span {
                         @include fontAdjust($fontSize: 2vw);
+                        // line-height: ;
                     }
                 }
             }

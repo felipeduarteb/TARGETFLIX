@@ -1,36 +1,32 @@
 .modalContainer {
     @include defaultScrollbar();
+    @include screenAdjust(100vw, 100%);
+    z-index: 150;
     position: fixed;
-    padding: 0;
     left: 0;
     top: 0;
-    width: 100vw;
-    height: 100%;
+    padding: 2vw 0 2vw 0;
+    overflow-y: scroll;
     display: flex;
-    overflow-y: scroll;    
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     background: rgba($color: #000000, $alpha: 0.9);
     transform: scale(1.1);
     opacity: 0;
     visibility: hidden;
     transition: hidden 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
-    z-index: 150;
-    box-sizing: border-box;
 }
 
 .modalMoreInfosVideo {
     box-sizing: border-box;
-    @include displayFlex(colum){ 
-        justify-content: space-between;
+    @include displayFlex(colum){
+        justify-content: center;
     };
     @include defaultBorder;
     background: $backgroundContentColor;
     box-shadow: $boxShadow;
-    position: absolute;
-    top: 2.5vw;
-    width: 50vw;
-    height: 100%;
+    @include screenAdjust(50vw, max-content);
     padding: 1vw;
     @include fontAdjust();
     @include device (mobile) {
@@ -38,13 +34,10 @@
     }
     span {
         cursor: pointer;
-        width: 5vw;
-        height: 5vw;
+        @include screenAdjust(5vw, 5vw);
         text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         line-height: 4vw;
+        @include displayFlex(colum, center, center);
         background: #161616;
         border-radius: 100%;
         @include fontAdjust(2.5vw);
@@ -52,7 +45,7 @@
             background: $backgroundHeaderColor;
         }
         @include device (mobile) {
-            width: 10vw;
+            @include screenAdjust(10vw, 10vw);
             line-height: 10vw;
             font-size: 5vw;
         }
@@ -61,7 +54,7 @@
         box-sizing: border-box;
         @include screenAdjust(100%, max-content);
         @include displayFlex(column, center, center){
-            gap: 2vw;
+            gap: 1.5vw;
         };
         @include fontAdjust(1.3vw, 300, 1.5vw);
         @include device (mobile) {
@@ -70,7 +63,7 @@
         }
         
         .imageModalContainer{
-            @include screenAdjust(50%, 50%);
+            @include screenAdjust(20vw, 25vw);
             @include device (mobile) {
                 @include screenAdjust(50vw, 50vw);
             }
@@ -83,15 +76,13 @@
         .titleDescriptionModal {
             @include fontAdjust(.9vw, 100, 0);
             @include device (mobile) {
-                @include fontAdjust(1rem, 100, 0);
+                @include fontAdjust(2vw, 100, 0);
             }
         }
         
         p {
             text-align: center;
         }
-
-
     }
 }
 
