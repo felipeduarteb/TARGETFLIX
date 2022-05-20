@@ -1,0 +1,80 @@
+{
+    fullTitle: "Avengers: Endgame (2019)"
+    imDbId: "tt4154796"
+    title: "Avengers: Endgame"
+    type: "Movie"
+    videoId: "hA6hldpSTF8"
+    videoUrl: "https://www.youtube.com/watch?v=hA6hldpSTF8"
+    year: "2019"
+},
+{
+    fullTitle: "Joker (2019)"
+    imDbId: "tt7286456"
+    title: "Joker"
+    type: "Movie"
+    videoId: "t433PEQGErc"
+    videoUrl: "https://www.youtube.com/watch?v=t433PEQGErc"
+    year: "2019"
+},
+{
+    fullTitle: "Dangal (2016)"
+    imDbId: "tt5074352"
+    title: "Dangal"
+    type: "Movie"
+    videoId: "x_7YlGv9u1g"
+    videoUrl: "https://www.youtube.com/watch?v=x_7YlGv9u1g"
+    year: "2016"
+},
+{
+    fullTitle: "Hamilton (2020)"
+    imDbId: "tt8503618"
+    title: "Hamilton"
+    type: "Movie"
+    videoId: "DSCKfXpAGHc"
+    videoUrl: "https://www.youtube.com/watch?v=DSCKfXpAGHc"
+    year: "2020" 
+},
+{
+    fullTitle: "Klaus (2019)"
+    imDbId: "tt4729430"
+    title: "Klaus"
+    type: "Movie"
+    videoId: "taE3PwurhYM"
+    videoUrl: "https://www.youtube.com/watch?v=taE3PwurhYM"
+    year: "2019"
+},
+{
+    fullTitle: "Parasite (2019)"
+    imDbId: "tt6751668"
+    title: "Parasite"
+    type: "Movie"
+    videoId: "isOGD_7hNIY"
+    videoUrl: "https://www.youtube.com/watch?v=isOGD_7hNIY"
+    year: "2019"
+},
+{
+    fullTitle: "Ford v Ferrari (2019)"
+imDbId: "tt1950186"
+title: "Ford v Ferrari"
+type: "Movie"
+videoId: "zyYgDtY2AMY"
+videoUrl: "https://www.youtube.com/watch?v=zyYgDtY2AMY"
+year: "2019"
+},
+{
+    fullTitle: "Logan (2017)"
+    imDbId: "tt3315342"
+    title: "Logan"
+    type: "Movie"
+    videoId: "Div0iP65aZo"
+    videoUrl: "https://www.youtube.com/watch?v=Div0iP65aZo"
+},
+{
+    fullTitle: "Spider-Man: Into the Spider-Verse (2018)"
+    imDbId: "tt4633694"
+    title: "Spider-Man: Into the Spider-Verse"
+    type: "Movie"
+    videoId: "g4Hbz2jLxvQ"
+    videoUrl: "https://www.youtube.com/watch?v=g4Hbz2jLxvQ"
+    year: "2018"
+}

@@ -1,0 +1,167 @@
+.containerRecommendedVideo {
+    position: relative;
+    @include screenAdjust (100%, 37vw);
+    @include device (mobile) {
+        @include screenAdjust(95vw, 70vw);
+    }
+
+    @include displayFlex(row, flex-start, flex-start);
+}
+
+.recommendedVideoContainer {
+    @include screenAdjust ();
+
+    iframe {
+        @include screenAdjust();
+    }
+}
+
+.informationsRecommendedVideo {
+    @include screenAdjust ();
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: 0;
+
+    #prevVideoRecommended,
+    #nextVideoRecommended {
+        @include displayFlex(column, center, center);
+        position: absolute;
+        top: 40%;
+        width: 6vw;
+        height: 6vw;
+        border-radius: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background: rgba($color: #414040, $alpha: 0.2);
+        }
+
+        span {
+            @include fontAdjust($fontSize: 4vw);
+            color: #6e6e6e;
+
+            @include device (mobile) {
+                @include fontAdjust($fontSize: 3rem);
+                font-weight: bold;
+            }
+        }
+        @include device (mobile) {
+            @include screenAdjust(18vw, 18vw);
+            font-weight: bold;
+            text-align: center;
+        }
+
+    }
+
+    #prevVideoRecommended {
+        left: .5vw;
+    }
+
+    #nextVideoRecommended {
+        right: .5vw;
+    }
+
+    .headerRecommendedVideoInitial,
+    .footerRecommendedVideoInitial {
+        position: absolute;
+        left: 0;
+        right: 0px;
+        background: $backgroundHeaderColor;
+        // opacity: 1;
+        box-sizing: border-box;
+        padding: 1vw;
+
+        @include displayFlex(column) {
+            gap: 1vw;
+        }
+    }
+
+    .headerRecommendedVideoInitial {
+        top: 0;
+        height: 4vw;
+        @include device (mobile) {
+           height: 8vw;
+        }
+        text-align: center;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .footerRecommendedVideoInitial {
+        bottom: 0;
+        height: 10vw;
+        @include device (mobile) {
+            height: 23vw;
+        }
+
+        .containerBtnsRecomendVideo {
+            @include displayFlex() {
+                gap: .5vw;
+            }
+            width: 100%;
+            position: relative;
+
+            #playFullScreenFooterRecommendedVideoInitial,
+            #btnFooterRecommendedToAddToList,
+            #btnFooterRecommendedToMoreInformations,
+            #btnFooterRecommendedPause,
+            #btnFooterRecommendedToExpand {
+                @include screenAdjust(2.3vw, 2.3vw);
+                border-radius: 100%;
+                background: none;
+                padding: .5vw;
+                cursor: pointer;
+                @include device (mobile) {
+                    @include screenAdjust(7vw, 7vw);
+                    padding: 1vw;
+                }
+                @include defaultBorder {
+                    border-color: $backgroundContentColor;
+                }
+
+                ;
+
+                img {
+                    @include screenAdjust();
+                }
+            }
+
+            #btnFooterRecommendedToExpand {
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        .informationsFooterRecommendedVideo {
+            @include screenAdjust();
+            @include displayFlex(column);
+            @include fontAdjust($fontSize: .6vw);
+            @include device (mobile) {
+                @include fontAdjust($fontSize: 2vw);
+                line-height: 3vw;
+            }
+            span {
+                @include fontAdjust($fontSize: 1vw);
+                @include device (mobile) {
+                    @include fontAdjust($fontSize: 3vw);
+                    line-height: 3vw;
+                }
+            }
+        }
+    }
+}
+
+.recommendedVideoActive {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+}
+
+.cursorNone {
+    cursor: none;
+}

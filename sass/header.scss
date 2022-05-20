@@ -1,0 +1,208 @@
+.headerContainer,
+.headerSides {
+    box-sizing: border-box;
+    background-color: $backgroundHeaderColor;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include screenAdjust($screenHeight: 4vw);
+    @include displayFlex(row, flex-start, center);
+
+    @include device (mobile) {
+        @include screenAdjust($screenHeight: 10vw);
+    }
+
+    .navHeader {
+        @include displayFlex(row, flex-start, center) {
+            flex-wrap: nowrap;
+            gap: $paddingHeader;
+        }
+
+        .logoHeader {
+            @include screenAdjust(13vw, 100%);
+
+            @include device (mobile) {
+                @include screenAdjust(30vw, inherit);
+            }
+
+            box-sizing: border-box;
+            @include displayFlex(row, center, center);
+            padding: $paddingHeader;
+
+            #imgLogoHeader {
+                @include screenAdjust;
+            }
+        }
+
+        .linksListHeader {
+            @include screenAdjust(39vw, 100%);
+            @include displayFlex($alignItems: center);
+
+            li>a {
+                padding: 20px;
+                text-decoration: none;
+                color: $colorPrimary;
+            }
+
+            @include device (mobile) {
+                display: block;
+                li>a {
+                    
+                    @include displayFlex(row, flex-end, center);
+                }
+                width: 100vw;
+                z-index: 10000;
+                visibility: hidden;
+                position: absolute;
+                overflow: hidden;
+                transition: .1s;
+                top: 11vw;
+                height: 0;
+            }
+        }
+    }
+
+    .searchHeader {
+        @include screenAdjust(25vw, 5vw);
+        @include displayFlex ($alignItems: center) {
+            gap: .5vw;
+        }
+
+        #inputSearchHeader {
+            @include fontAdjust();
+            @include screenAdjust($screenHeight: 65%);
+            background-color: $backgroundContentColor;
+            color: $colorPrimary;
+            @include defaultBorder;
+            &::placeholder {
+                padding: $paddingHeader;
+                @include fontAdjust(.8rem);
+            }
+            @include device (mobile) {
+                @include fontAdjust(3vw);
+                &::placeholder {
+                    @include fontAdjust(3vw);
+                }
+            }
+            
+        }
+
+        #btnSearchHeader {
+            padding: .5vw;
+            box-sizing: border-box;
+            cursor: pointer;
+            border: none;
+            background: none;
+
+            #searchIcon {
+                @include screenAdjust();
+                margin: auto auto;
+            }
+        }
+
+        @include device (mobile) {
+            margin-left: 10vw;
+            width: 40vw;
+            height: 100%;
+            &::placeholder {
+                @include fontAdjust(4vw);
+            }
+        }
+    }
+
+    .avatarHeader {
+        position: absolute;
+        right: $paddingHeader;
+        border-radius: 100%;
+        @include screenAdjust(3.5vw, 3.5vw);
+        box-sizing: border-box;
+
+        @include device (mobile) {
+            @include screenAdjust(7vw, 7vw);
+        }
+    }
+
+    #avatar {
+        @include screenAdjust;
+    }
+}
+
+.headerSides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#btnMenuMobile {
+    @include screenAdjust(16vw, 100%);
+    border-radius: 35px 2px 2px 35px;
+    display: none;
+    visibility: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    right: 1vw;
+    background: none;
+    color: $colorPrimary;
+    z-index: 2;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-start;
+    cursor: pointer;
+    #spanBtnMobile {
+        display: block;
+        margin: auto 0 ;
+        &::after, &::before {
+            content: '';
+            display: block;
+            border-top: 2px solid;
+            width: 3vw;
+            margin-top: 5px;
+            transition: .3s;
+            position: relative;
+        }
+    }
+    span {
+        font-size: 1rem;
+        text-align: center;
+        display: flex;
+        line-height: 1rem;
+        padding: 1vw;
+    }
+
+    @include device (mobile) {
+        display: block;
+        visibility: visible;
+    }
+
+}
+.navHeader.navActive #spanBtnMobile::before {
+    transform: rotate(135deg);
+}
+.navHeader.navActive #spanBtnMobile::after {
+    transform: rotate(-135deg);
+    top: -7px;
+}
+
+
+.navHeader.navActive .linksListHeader {
+    visibility: visible;
+    height: calc(100vh - 11vw);
+    // height: 100%;
+    background: $backgroundContentColor;
+    font-size: 1.3rem;
+    line-height: 2.3rem;
+    li {
+        width: 100%;
+        display: flex;
+    }
+   
+    li>a {
+        @include screenAdjust(inherit, inherit);
+        margin: 0 1rem;
+        &:hover {
+            background: $backgroundHeaderColor;
+        }
+    }
+}

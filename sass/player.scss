@@ -1,0 +1,120 @@
+.playerVideo {
+    position: relative;
+    position: fixed;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+    background: rgba($color: #000000, $alpha: 0.9);
+    transform: scale(1.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: hidden 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+}
+.iframePlayer {
+    @include screenAdjust();
+    
+    iframe {
+        @include screenAdjust();
+        z-index: -1;
+    }
+}
+.informationsMovie {
+    @include screenAdjust ();
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    
+    .headerPlayer,
+    .footerPlayer {
+        position: absolute;
+        left: 0;
+        right: -1px;
+        background: $backgroundHeaderColor;
+
+        box-sizing: border-box;
+        padding: 1vw;
+
+        @include displayFlex(column) {
+            gap: 1vw;
+        };
+    }
+
+    .headerPlayer {
+        top: 0;
+        height: 4vw;
+    }
+
+    .footerPlayer {
+        bottom: 0;
+        height: 10vw;
+
+        .containerBtnsRecomendVideo {
+            @include displayFlex() {
+                gap: .5vw;
+            }
+
+            ;
+            width: 100%;
+            position: relative;
+
+            #btnPlay,
+            #btnAddList,
+            #btnMoreInformations,
+            #btnPause,
+            #btnExpand {
+                @include screenAdjust(2.3vw, 2.3vw);
+                border-radius: 100%;
+                background: none;
+                padding: .5vw;
+                cursor: pointer;
+
+                @include defaultBorder {
+                    border-color: $backgroundContentColor;
+                }
+
+                ;
+
+                img {
+                    @include screenAdjust();
+                }
+            }
+
+            #btnExpand {
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        .informationsFooterRecommendedVideo {
+            @include displayFlex(column);
+            @include fontAdjust($fontSize: .6vw);
+
+            span {
+                @include fontAdjust($fontSize: 1vw);
+            }
+        }
+    }
+}
+
+
+.recommendedVideoActive {
+background: rgba($color: #000000, $alpha: 0.6);
+opacity: 1;
+visibility: visible;
+}
+
+.cursorNone {
+cursor: none;
+}
+
+.containerPlayerActive {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+}

@@ -1,0 +1,103 @@
+.contentSeriesContainer, .contentMoviesContainer, .contentSearchContainer, .contentUserListContainer {
+    @include screenAdjust();
+    @include screenAdjust (98vw, 100%);
+    @include displayFlex(column, flex-start, center){
+        gap: 3vw;
+    };
+    // position: relative;
+    display: none;
+    visibility: hidden;
+    padding: 1vw;
+    
+    @include device (mobile){
+        padding: 4vw;
+    };
+    
+    .containerOptionsGenre {
+        @include displayFlex(row, center, center){
+            gap: 2vw;
+        };
+        
+        @include device (mobile){
+            @include displayFlex(column, center, center){
+                gap: 4vw;
+            };
+        }
+        
+        #optionsGenreSeries, #optionsGenreMovies {
+            @include fontAdjust();
+            @include screenAdjust(15vw, 4vw);
+            @include fontAdjust(1.5vw, 500, 2vw);
+            @include defaultBorder;
+            color: $colorPrimary;
+            background: none;
+            cursor: pointer;
+            option {
+                cursor: pointer;
+                background: $backgroundHeaderColor;
+            }
+            @include device (mobile){
+                @include screenAdjust(30vw, 7vw);
+                @include fontAdjust(3vw, 500, 2vw);
+            }
+        }
+    }
+    .containerCardsList {
+        // position: relative;
+        @include screenAdjust();
+        @include displayFlex(row, center, center){
+            flex-wrap: wrap;
+            gap: 2vw;
+        }
+        padding: 1vw;
+        @include device (mobile) {
+            gap: 3vw;
+            padding: 2vw;
+        }
+        .areaBoxCard {
+            @include screenAdjust(100vw, 100%);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+        .cardBox {
+            // position: relative;
+            @include screenAdjust (15vw, 18vw);
+            @include device (mobile) {
+                @include screenAdjust(45%, 60vw);
+            }
+            @include defaultBorder();
+            // overflow: hidden;
+            img {
+                @include defaultBorder();
+                @include screenAdjust();
+                object-fit: fill;
+            }
+            transition: all 0.3s;
+            box-shadow: $boxShadow;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+            }   
+        }
+    }
+}
+.titleSection {
+    @include fontAdjust(3vw, 500, 2vw);
+    @include device (mobile) {
+        @include fontAdjust(6vw, 500, 3vw);
+    }
+}
+
+.sectionActive {
+    display: flex;
+    visibility: visible;
+}
+.sectionDesactive {
+    display: none;
+    visibility: hidden;
+}
+
+.contentUserListContainer {
+    
+}

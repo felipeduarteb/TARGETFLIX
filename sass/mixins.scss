@@ -1,0 +1,67 @@
+@mixin borderTest ($cor: red) {
+    border: solid 2px $cor;
+}
+
+@mixin displayGrid ($column: 1fr, $row: repeat(12, 1fr)) {
+    display: grid;
+    grid-template-columns: $column;
+    grid-template-rows: $row;
+    @content;
+}
+
+@mixin displayFlex ($flexDirection: row, $justfyContent: flex-start, $alignItems: flex-start){
+    display: flex;
+    flex-direction: $flexDirection;
+    justify-content: $justfyContent;
+    align-items: $alignItems;
+    @content;    
+}
+
+@mixin screenAdjust ($screenWidth: 100%, $screenHeight: 100%) {
+    width: $screenWidth;
+    height: $screenHeight;
+    @content;
+}
+
+@mixin fontAdjust ($fontSize: 1.1vw, $fontWeight: 500, $lineHeight: 1.3vw) {
+    font-size: $fontSize;
+    font-family: $fontPrimary;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    @content;
+}
+
+@mixin defaultBorder {
+    border: solid 1px $backgroundHeaderColor;
+    border-radius: 10px;
+    @content;
+}
+
+@mixin defaultScrollbar {
+    &::-webkit-scrollbar{
+        border-radius: 6px;
+        background: none;
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgba(63, 63, 63, 0.3);
+        border-radius: 20px;
+        width: 5px;
+    }
+}
+
+@mixin device ($sizeDevice){
+    @if $sizeDevice == mobile {
+        @media (min-width: 0px) and (max-width: 767px) {
+            @content;
+        }
+    // } @else if $sizeDevice == tablet {
+    //     @media (min-width: 379px) and (max-width: 840px){
+    //         @content;
+    //     }
+    } @else if $sizeDevice == web {
+        @media (min-width: 840px) {
+            @content;
+        }
+    }
+}

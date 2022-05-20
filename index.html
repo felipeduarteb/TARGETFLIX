@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/tf-logo.png" />
+    <title>TargetFlix</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="" src="./js/geral.js" defer></script>
+</head>
+
+<body>
+    <div class="headerSides"></div>
+    <main class="mainContainer">
+
+        <header class="headerContainer">
+            <nav class="navHeader">
+                <div class="logoHeader"> <a href="#"><img src="./img/logo.png" alt="logo" id="imgLogoHeader"></a></div>
+                <button id="btnMenuMobile" aria-label="abrir menu"><span id="spanBtnMobile"></span></button>
+                <ul class="linksListHeader">
+                    <li><a id="pageHome" href="/home">Home</a></li>
+                    <li><a id="pageSeries" href="#">Séries</a></li>
+                    <li><a id="pageMovies" href="#">Filmes</a></li>
+                    <li><a id="pageUserList" href="#">Minha lista</a></li>
+                </ul>
+            </nav>
+            <form class="searchHeader">
+                <input type="text" name="search" id="inputSearchHeader" placeholder="Pesquisar">
+                <button id="btnSearchHeader"><img id="searchIcon" src="./img/search-icon.svg"
+                        alt="botao procurar"></button>
+            </form>
+
+            <div class="avatarHeader">
+                <img src="./img/bart-avatar.png" alt="imagem avatar" id="avatar">
+            </div>
+        </header>
+
+        <section class="contentHomeContainer" >
+            <div class="containerRecommendedVideo">
+                <div class="recommendedVideoContainer">
+                    <div id="playerRecommendedVideo">
+                        <!-- iframe  -->
+
+                    </div>
+                </div>
+                <div class="informationsRecommendedVideo">
+                    <button id="prevVideoRecommended">
+                        <span>&lt;</span>
+                    </button>
+                    <button id="nextVideoRecommended">
+                        <span>&gt;</span>
+                    </button>
+                    <div class="headerRecommendedVideoInitial">
+                        <h2></h2>
+                    </div>
+
+                    <div class="footerRecommendedVideoInitial">
+                        <div class="containerBtnsRecomendVideo">
+                            <button id="playFullScreenFooterRecommendedVideoInitial">
+                                <img src="./img/play-icon.png" alt="ícone para play">
+                            </button>
+                            <button id="btnFooterRecommendedPause">
+                                <img src="./img/pause-icon.png" alt="">
+                            </button>
+                            <button id="btnFooterRecommendedToAddToList">
+                                <img src="./img/add-icon.png" alt="ícone para adicionar a minha lista">
+                            </button>
+                            <button id="btnFooterRecommendedToMoreInformations">
+                                <img src="./img/more-icon.svg" alt="ícone para mais informações">
+                            </button>
+                            <button id="btnFooterRecommendedToExpand">
+                                <img src="./img/expand-icon.png" alt="">
+                            </button>
+                        </div>
+                        <div class="informationsFooterRecommendedVideo">
+                            <h3>Classificação: <span> </span> </h3>
+                            <h3>Gênero: <span> </span></h3>
+                            <h3>Duração: <span> </span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentReleasesContainer">
+                <h2 class="titleReleases">
+                    Lançametos
+                </h2>
+                <div class="containerAreaBoxMovies">
+                    <button class="btnPrevBox" id="prevReleases">&lt;</button>
+                    <div class="videoReleasesContainer toggleEvent">
+
+                    </div>
+                    <button class="btnNextBox" id="nextReleases">&gt;</button>
+                </div>
+            </div>
+
+            <div class="contentPopularContainer">
+                <h2 class="titlePopular">
+                    Populares na TargetFlix
+                </h2>
+
+                <div class="containerAreaBoxMovies">
+                    <button class="btnPrevBox" id="prevPopular">&lt;</button>
+                    <div class="videoPopularContainer toggleEvent">
+
+                    </div>
+                    <button class="btnNextBox" id="nextPopular">&gt;</button>
+                </div>
+            </div>
+
+            <div class="contentActionContainer">
+                <h2 class="titleActionAdventure">
+                    Ação/Aventura
+                </h2>
+                <div class="containerAreaBoxMovies">
+                    <button class="btnPrevBox" id="prevActionAdventure">&lt;</button>
+                    <div class="videoActionAdventureContainer toggleEvent">
+
+                    </div>
+                    <button class="btnNextBox" id="nextActionAdventure">&gt;</button>
+                </div>
+            </div>
+
+            <div class="contentNationalContainer">
+                <h2 class="titleList">
+                    Ficção científica
+                </h2>
+    
+                <div class="containerAreaBoxMovies">
+                    <button class="btnPrevBox" id="prevNational">&lt;</button>
+                    <div class="videoNationalContainer toggleEvent">
+    
+                    </div>
+                    <button class="btnNextBox" id="nextNational">&gt;</button>
+                </div>
+            </div>
+            
+
+            <div class="conttentUserListContainer">
+                <h2 class="titleList">
+                    Sua lista
+                </h2>
+                
+                <div class="containerAreaBoxMovies">
+                    <button class="btnPrevBox" id="prevUserList">&lt;</button>
+                    <div class="videoUserList toggleEvent">
+                        
+                    </div>
+                    <button class="btnNextBox" id="prevUserList">&gt;</button>
+                </div>
+            </div>
+                        
+        </section>
+
+        <section class="contentSeriesContainer">
+            
+            <form class="containerOptionsGenre">
+                <label for="Series"><h1 class="titleSection">Series</h1></label>
+                <select name="opcoes" id="optionsGenreSeries">
+                    <option value="releases">Populares</option>
+                    <option value="actionAdventure">Ação/Aventura</option>
+                    <option value="animation">Animação</option>
+                    <option value="comedy">Comédia</option>
+                    <option value="documentary">Documentários</option>
+                    <option value="fantasy">Fantasia</option>
+                    <option value="sciFi">Ficção científica</option>
+                    <option value="horror">Terror</option>
+                </select>
+            </form>
+
+            <div class="containerCardsList">
+
+            </div>
+        </section>
+
+        <section class="contentMoviesContainer">
+            
+            <form class="containerOptionsGenre">
+                <label for="Filmes"><h1 class="titleSection">Filmes</h1></label>
+                <select name="opcoes" id="optionsGenreMovies">
+                    <option value="releases">Populares</option>
+                    <option value="actionAdventure">Ação/Aventura</option>
+                    <option value="animation">Animação</option>
+                    <option value="comedy">Comédia</option>
+                    <option value="documentary">Documentários</option>
+                    <option value="fantasy">Fantasia</option>
+                    <option value="sciFi">Ficção científica</option>
+                    <option value="horror">Terror</option>
+                </select>
+            </form>
+
+            <div class="containerCardsList">
+
+            </div>
+        </section>
+
+        <section class="contentSearchContainer">
+            <h1 class="titleSection">Pesquisando por... </h1>
+            <div class="containerCardsList">
+            </div>
+
+        </section>
+
+        <section class="contentUserListContainer">
+            <h1 class="titleSection">Sua lista</h1>
+            <div class="containerCardsList">
+
+            </div>
+        </section>
+
+        <div class="modalContainer">
+            <div class="modalMoreInfosVideo">
+
+            </div>
+        </div>
+        <div class="playerVideo"></div>
+    </main>
+    <!-- <footer class="footerContainer">
+    </footer> -->
+</body>
+
+</html>

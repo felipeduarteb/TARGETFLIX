@@ -1,0 +1,135 @@
+.contentHomeContainer {
+    // position: relative;
+    margin: 0 auto;
+    width: max-content;
+    display: none;
+    visibility: hidden;
+    @include displayFlex ($flexDirection: column) {
+        gap: 1vw;
+        @include device (mobile) {
+            gap: 5vh;
+            font-size: 1rem;
+        }
+    }
+    .contentReleasesContainer,
+    .contentPopularContainer,
+    .contentActionContainer,
+    .contentNationalContainer,
+    .conttentUserListContainer  {
+        @include screenAdjust (93vw, 22vw);
+        @include displayFlex (column, center, ) {
+            gap: 1vw;
+        };
+        @include device (mobile) {
+            @include screenAdjust (93vw, 65vw);
+            gap: 5vh;
+        }
+        box-sizing: border-box;
+    }
+    .containerAreaBoxMovies {
+        @include screenAdjust();
+        position: relative;
+    }
+
+    .videoReleasesContainer,
+    .videoPopularContainer,
+    .videoActionAdventureContainer,
+    .videoUserList, .videoNationalContainer {
+        
+        @include screenAdjust();
+        @include displayFlex() {
+            gap: 1vw;
+        }
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .transitionVideoContainer1,
+    .prevContainerVideosBox {
+        @include screenAdjust();
+        @include displayFlex(row, flex-start, center) {
+            gap: 1vw;
+        }
+        overflow: visible;
+        position: absolute;
+       
+    }
+    .contentReleases,
+    .contentPopular,
+    .contentActionAdventure,
+    .contentUserList,
+    .contentNational {      
+        @include screenAdjust (15vw, 18vw);
+        @include device (mobile) {
+            @include screenAdjust(50%, 60vw);
+        }
+        @include defaultBorder();
+        overflow: hidden;
+        img {
+            @include screenAdjust();
+            object-fit: fill;
+        }
+        transition: all 0.3s;
+        box-shadow: $boxShadow;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+        }      
+    }
+
+    .left {
+        right: 100%;
+        margin-right: 1vw;
+
+
+    }
+
+    .right {
+        left: 100%;
+        margin-left: 1vw;
+    }
+
+    .btnPrevBox,
+    .btnNextBox {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4vw;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #6e6e6e;
+        z-index: 1;
+        @include fontAdjust($fontSize: 3vw);
+        @include device (mobile) {
+            @include fontAdjust($fontSize: 4rem);
+            font-weight: bold;
+            width: 8vw;
+            color: #fbfbfb;
+        }
+        &:hover {
+            background: rgba($color: #414040, $alpha: 0.2);
+        }
+    }
+
+    .btnPrevBox {
+        left: -3.5vw;
+    }
+
+    .btnNextBox {
+        right: -3.5vw;
+
+    }
+    @include device (mobile) {
+        .btnPrevBox {
+            left: -2vw;
+        }
+    
+        .btnNextBox {
+            right: -2vw;
+    
+        }
+        
+    }
+    
+}

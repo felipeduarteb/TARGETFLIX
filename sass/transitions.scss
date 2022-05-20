@@ -1,0 +1,59 @@
+.transitionRightToCenter { 
+    animation-name: animationTransition;
+    animation-duration: .56s;
+    @include device (mobile) {
+        animation-duration: .26s;
+    }
+}
+.transitionCenterToLeft { 
+    animation-name: animationTransition2;
+    animation-duration: .56s;
+    @include device (mobile) {
+        animation-duration: .26s;
+    }
+}
+
+.transitionRightToLeft { 
+    animation-name: animationTransition3;
+    animation-duration: .56s;
+    @include device (mobile) {
+        animation-duration: .26s;
+    }
+}
+.transitionCenterToRight { 
+    animation-name: animationTransition4;
+    animation-duration: .56s;
+    @include device (mobile) {
+        animation-duration: .26s;
+    }
+}
+.transitionLeftToCenter { 
+    animation-name: animationTransition5;
+    animation-duration: .56s;
+    @include device (mobile) {
+        animation-duration: .26s;
+    }
+}
+
+@keyframes animationTransition {
+    0% { left: 100%; }
+    100% { left: 0;}
+}
+
+@keyframes animationTransition2 {
+    0% { right: 0; }
+    100% { right: 100%;}
+}
+
+@keyframes animationTransition3 {
+    0% { left: 200%; }
+    100% { left: 100%;}
+}
+@keyframes animationTransition4 {
+    0% { left: 0; }
+    100% { left: 100%;}
+}
+@keyframes animationTransition5 {
+    0% { right: 100%; }
+    100% { right: 0;}
+}
