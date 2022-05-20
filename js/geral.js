@@ -1,6 +1,5 @@
 // URLs PARA AS CONSULTAS DAS API's
-// const keyImdbID = 'pk_vqxisdlfsz9m4sd4q';
-const keyImdbID = 'k_4yc99ywj';
+const keyImdbID = 'pk_vqxisdlfsz9m4sd4q';
 const URLOmdbApi = 'https://www.omdbapi.com/?apikey=fd904a8f&';
 const UrlTop250Movies = `https://imdb-api.com/en/API/Top250Movies/${keyImdbID}`;
 const UrlMostPopularMovies = `https://imdb-api.com/en/API/MostPopularMovies/${keyImdbID}`;
