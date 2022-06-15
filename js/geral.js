@@ -15,7 +15,7 @@ let dataPopularVideos = [];
 let dataSciFiVideos = [];
 let dataActionVideos = [];
 let pausePlayer = true;
-let playPlayer = true;
+let playPlayer = false;
 let player;
 let videoAtual;
 let trailerIdVideoAtual;
@@ -372,6 +372,16 @@ const IdRandom = () => {
   const topRandom = (num) => Math.floor(Math.random() * num);
   return top100Videos[topRandom(topVideosToRandomID)];
 }
+// ALTERA BOTÃO PAUSE E PLAY DO PLAYER CENTRAL
+const innerBtnPlayOrPause = () => {
+  const btnPlayCentral = document.querySelector('#btnPlayCentralPlayer');
+  if (playPlayer || !pausePlayer) {
+    btnPlayCentral.querySelector('img').setAttribute('src', './img/play-icon.png');
+  } else {
+    btnPlayCentral.querySelector('img').setAttribute('src', './img/pause-icon.png');
+  }
+    
+}
 // INSERE INFORMAÇÕES DO IMDBID NO PLAYER DE TRAILERS RECOMENTADO
 const innerHTMLToInformationsRecommendedVideo = (informationsVideoRecommended) => {
   const recommendedHeaderContainer = document.querySelector('.headerRecommendedVideoInitial');
@@ -414,10 +424,12 @@ const stopVideoPlayer = () => {
   } else {
     return false;
   }
+  innerBtnPlayOrPause();
 }
 // FUNÇÃO PARA PLAY VIDEO
 const playVideo = () => {
   player.playVideo();
+  innerBtnPlayOrPause();
 }
 // INSERE PLAYER COM O TRAILER
 const playerForYouTubeVideo = (videoIDTrailer, localPlayer) => {
@@ -459,7 +471,7 @@ const playerForYouTubeVideo = (videoIDTrailer, localPlayer) => {
       recommendedVideoTrailer();
     }
   }
-
+  playPlayer = false;
 }
 // RETORNA SE ALGUM ELEMENTO ESTÁ EM FULLSCREEN  
 const getFullscreenElement = () => {
@@ -482,9 +494,11 @@ const handlePauseAndPlayVideo = () => {
   if (playPlayer) {
     pausePlayer = true;
     playPlayer = false;
+    if (stopVideoPlayer()) stopVideoPlayer();
     removeIframe();
     createContainerRecommendedVideo();
     playerForYouTubeVideo(trailerIdVideoAtual.videoId, 'playerRecommendedVideo');
+    innerBtnPlayOrPause();
   } else if (!playPlayer) {
     stopVideoPlayer();
   } else {
@@ -494,7 +508,7 @@ const handlePauseAndPlayVideo = () => {
 }
 // ESCUTA DOS BOTÕES DO PLAYER DE TRAILERS RECOMENDADO
 const listenerBtnsRecommendedVideos = (() => {
-  const containerPlayer = document.querySelector('.containerRecommendedVideo')
+  const btnPlayCentral = document.querySelector('#btnPlayCentralPlayer');
   const btnPlayVideo = document.querySelector('#playFullScreenFooterRecommendedVideoInitial')
   const btnPauseVideo = document.querySelector('#btnFooterRecommendedPause');
   const btnAddToList = document.querySelector('#btnFooterRecommendedToAddToList');
@@ -504,7 +518,9 @@ const listenerBtnsRecommendedVideos = (() => {
   const btnNext = document.querySelector('#nextVideoRecommended');
   const containerRecommended = document.querySelector('.informationsRecommendedVideo');
   let removeControls;
-  containerRecommended.addEventListener('click', handlePauseAndPlayVideo);
+  btnPlayCentral.addEventListener('click', () => {
+    handlePauseAndPlayVideo();
+  });
   containerRecommended.addEventListener('mousemove', () => {
     containerRecommended.classList.add('recommendedVideoActive');
     containerRecommended.classList.remove('cursorNone');
@@ -515,7 +531,7 @@ const listenerBtnsRecommendedVideos = (() => {
     }, 1500);
 
   });
-  btnPlayVideo.addEventListener('click', () => handlePauseAndPlayVideo);
+  btnPlayVideo.addEventListener('click', () => handlePauseAndPlayVideo());
   btnPauseVideo.addEventListener('click', () => {
     if (playPlayer) {
       playPlayer = false;
@@ -668,6 +684,7 @@ const listenerBtnsNextPrevBox = (() => {
       const boxContainerRight = areaContainerTransitions.querySelector('.right');
       boxContainerRight.classList.remove('transitionRightToLeft', 'transitionCenterToRight', 'right');
       boxContainerRight.classList.add('transitionRightToCenter', 'center');
+
       switch (btnNext.id) {
         case 'nextReleases':
           createReleasesCards(1);
@@ -688,7 +705,8 @@ const listenerBtnsNextPrevBox = (() => {
         default:
           break;
       }
-    })
+      innerBtnPlayOrPause();
+    });
   });
   btnsPrevBoxArea.forEach((btnPrev) => {
     btnPrev.addEventListener('click', (btn) => {
@@ -714,8 +732,10 @@ const listenerBtnsNextPrevBox = (() => {
         default:
           break;
       }
-    })
-  })
+      innerBtnPlayOrPause();
+    });
+    
+  });
 })();
 // LIDA COM O MENU MOBILE
 const toggleMenu = (() => {
@@ -851,13 +871,14 @@ const handleScrollScreen = () => {
   const isSectionHome = document.querySelector('.sectionActive').classList.contains('contentHomeContainer');
   const isBottom = window.scrollY + (window.innerHeight + 1) >= parseInt(mainContainerPositions.height);
   if (isBottom && !isSectionHome) {
-    if (removeModalTrailer()) removeModalTrailer();
+    // if (removeModalTrailer()) removeModalTrailer();
     setTimeout(() => { creatCardsBox(dataGenre, false); }, 400);
   }
   if (pausePlayer) {
     if (window.scrollY > document.querySelector('.containerRecommendedVideo').clientHeight) {
       document.querySelector('.navHeader').classList.remove('navActive');
       pausePlayer = false;
+      if (stopVideoPlayer()) stopVideoPlayer();
       if (removeIframe()) removeIframe();
     }
   }

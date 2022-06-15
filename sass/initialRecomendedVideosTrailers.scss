@@ -17,10 +17,11 @@
 }
 
 .informationsRecommendedVideo {
-    @include screenAdjust ();
     position: absolute;
     top: 0;
     bottom: 0;
+    left: 0;
+    right: -1px;
     opacity: 0;
     visibility: 0;
 
@@ -28,12 +29,12 @@
     #nextVideoRecommended {
         @include displayFlex(column, center, center);
         @include screenAdjust(6vw,6vw);
+        @include defaultBorder;
         position: absolute;
         display: none;
         top: 40%;
-        border-radius: 100%;
         background: none;
-        border: none;
+        // border: none;
         cursor: pointer;
         text-align: center;
         &:hover {
@@ -64,6 +65,28 @@
 
     #nextVideoRecommended {
         right: .5vw;
+    }
+    #btnPlayCentralPlayer {
+        @include defaultBorder;
+        position: absolute;
+        width: 5vw;
+        height: 5vw;
+        top: calc(37vw / 2 - 2.5vw);
+        left: calc(50% - 2.5vw);
+        background: none;
+        display: none;
+        cursor: pointer;
+        &:hover {
+            background: rgba($color: #414040, $alpha: 0.2);
+        }
+        img {
+            @include screenAdjust;
+        }
+        @include device (mobile) {
+            @include screenAdjust(18vw, 18vw);
+            top: calc(70vw / 2 - 9vw);
+            left: calc(50% - 9vw);
+        }
     }
 
     .headerRecommendedVideoInitial,
@@ -161,7 +184,7 @@
     visibility: visible;
     transform: scale(1.0);
     #prevVideoRecommended,
-    #nextVideoRecommended {
+    #nextVideoRecommended, #btnPlayCentralPlayer {
         display: flex;
     }
 }
